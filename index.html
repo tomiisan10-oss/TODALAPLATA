@@ -234,5 +234,23 @@ fbq('track', 'PageView');
     })();
   </script>
 </body>
+  <!-- Evento Contact SOLO en click del botón de WhatsApp -->
+<script>
+(function () {
+  const btn = document.getElementById('whatsapp-button');
+  if (!btn) return;
+
+  btn.addEventListener('click', function () {
+    try {
+      if (typeof fbq === 'function') {
+        fbq('track', 'Contact');
+      }
+    } catch (e) {
+      console.warn('Error track Contact', e);
+    }
+  });
+})();
+</script>
+
 </html>
 
